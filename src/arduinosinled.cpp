@@ -31,18 +31,21 @@ void SinLed::cycle() {
   at_ = at_ < FDS_LED_SIN_MAXIMUM_AT ? at_ + step_ : 0.0;
 }
 
-void SinLed::fullcycle(const unsigned long& delayms, const uint8_t& count, const float& at) {
+void SinLed::fullcycle(const uint8_t& count, const unsigned long& delayms, const float& at) {
   if (at >= 0.0F) {
     at_ = at;
   }
-  while (at < FDS_LED_SIN_MAXIMUM_AT) {
-    outputsin();
-    if (delayms > 0) {
-      delay(delayms);
+  for(uint8_t i = 0; i < count; i++) {
+    while (at_ < FDS_LED_SIN_MAXIMUM_AT) {
+      outputsin();
+      if (delayms > 0) {
+        delay(delayms);
+      }
+      at_ += step_;
     }
-    at_ += step_;
+    at_ = 0.0;
   }
-  at_ = 0.0;
+  analogWrite(pin_, LOW);
 }
 
 void SinLed::outputsin() {

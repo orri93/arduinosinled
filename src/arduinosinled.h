@@ -40,7 +40,7 @@ public:
   void setstep(const float& step);
 
   void cycle();
-  void fullcycle(const unsigned long& delay = 0, const uint8_t& count = 1, const float& at = -1.0);
+  void fullcycle(const uint8_t& count = 1, const unsigned long& delay = 0, const float& at = -1.0);
 
 private:
   int pin_;
