@@ -39,15 +39,19 @@ public:
   void setat(const float& at);
   void setstep(const float& step);
 
-  void cycle();
-  void fullcycle(const uint8_t& count = 1, const unsigned long& delay = 0, const float& at = -1.0);
+  uint8_t cycle(const uint8_t& max = 0xff);
+  void fullcycle(
+    const uint8_t& count = 1,
+    const unsigned long& delay = 0,
+    const float& at = -1.0,
+    const uint8_t& max = 0xff);
 
 private:
   int pin_;
   float at_;
   float step_;
 
-  void outputsin();
+  uint8_t outputsin(const uint8_t& max);
 };
 
 }
