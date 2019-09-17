@@ -1,12 +1,7 @@
 #ifndef _FDS_ARDUINO_LIBRARY_SIN_LED_1_H_
 #define _FDS_ARDUINO_LIBRARY_SIN_LED_1_H_
 
-
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "arduino.h"
-#else
-	#include "WProgram.h"
-#endif
+#include "Arduino.h"
 
 #ifndef FDS_LED_SIN_COUNT_IN_STARTUP
 #define FDS_LED_SIN_COUNT_IN_STARTUP     3
@@ -23,7 +18,6 @@
 #ifndef FDS_LED_SIN_MAXIMUM_AT
 #define FDS_LED_SIN_MAXIMUM_AT TWO_PI
 #endif
-
 
 namespace fds {
 
